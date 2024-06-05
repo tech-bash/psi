@@ -385,6 +385,8 @@ add_executable(${PROJECT_NAME}
     ${UI_FORMS}
     ${QRC_SOURCES}
     ${RC_FILE}
+    customScrollBar.h
+
 )
 
 #Generate .rc file for windows with Qt6

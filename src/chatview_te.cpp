@@ -29,10 +29,12 @@
 #include "qiteaudio.h"
 #include "textutil.h"
 #include "xmpp/jid/jid.h"
+#include "customScrollBar.h"
 
 #include <QKeyEvent>
 #include <QMenu>
 #include <QScrollBar>
+#include <QScrollArea>
 #include <QTextBlock>
 #include <QTextDocumentFragment>
 #include <QTextOption>
@@ -60,7 +62,9 @@ ChatView::ChatView(QWidget *parent) :
     setReadOnly(true);
     setUndoRedoEnabled(false);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBar(new CustomScrollBar(Qt::Vertical, this));
     setLooks(this);
+    setFrameStyle(QFrame::NoFrame);
 
 #ifndef Q_OS_LINUX // linux has this feature built-in
     connect(this, SIGNAL(selectionChanged()), SLOT(autoCopy()));
